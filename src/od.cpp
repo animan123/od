@@ -1,6 +1,8 @@
 #include <iostream>
 
+#include "constants.h"
+
 int main () {
-	std::cout << "Hello World" << std::endl;
+	std::cout << WHITE << std::endl;
 	return 0;
 }
