@@ -4,7 +4,7 @@
 #include <string>
 #include <assert.h>
 
-int index (std::string notation) {
+int notation_to_index (std::string notation) {
 	assert (notation.length() == 2);
 	assert (notation[0] >= 'A' && notation[0] <= 'H');
 	assert (notation[1] >= '1' && notation[1] <= '8');
@@ -13,7 +13,7 @@ int index (std::string notation) {
 	return index;
 }
 
-std::string notation (int index) {
+std::string index_to_notation (int index) {
 	assert (index >= 0 && index <= 63);
 
 	std::string notation (2, 'c');

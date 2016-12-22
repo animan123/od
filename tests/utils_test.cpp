@@ -11,7 +11,7 @@ int main () {
 			string nota (2, 'a');
 			nota[0] = first;
 			nota[1] = second;
-			test (index(nota) == counter, "Index test for " + nota);
+			test (INDEX(nota) == counter, "Index test for " + nota);
 			counter += 1;
 		}
 	}
@@ -22,7 +22,7 @@ int main () {
 			string nota (2, 'a');
 			nota[0] = first;
 			nota[1] = second;
-			string x = notation (counter);
+			string x = NOTATION (counter);
 			test (x == nota, "Notation test for " + nota);
 			counter += 1;
 		}
