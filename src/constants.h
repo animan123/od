@@ -8,7 +8,10 @@
 #define BLACK 1
 #define ALL 2
 
-//Each bitboard is an unsigned 64 bit integer
-#define piece uint_64_t
+//each bitboard is an unsigned 64 bit integer
+#define piece uint64_t
+
+//convert integers to piece type
+#define PIECE(x) UINT64_C(x)
 
 #endif
