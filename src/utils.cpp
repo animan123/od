@@ -22,3 +22,11 @@ std::string index_to_notation (int index) {
 	return notation;
 }
 
+void set_bit (piece &p, int n) {
+	p |= (1<<n);
+}
+
+void reset_bit (piece &p, int n) {
+	p &= (~(1<<n));
+}
+

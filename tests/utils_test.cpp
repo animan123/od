@@ -1,4 +1,5 @@
 #include "../src/utils.h"
+#include "../src/constants.h"
 #include "tests.h"
 #include <string>
 #include <iostream>
@@ -26,6 +27,15 @@ int main () {
 			test (x == nota, "Notation test for " + nota);
 			counter += 1;
 		}
+	}
+
+	piece x = 0;
+	for (int i=0; i<64; ++i) {
+		piece y = x;
+		SET(y, i);
+		test (y == (1<<i), "Set test for " + to_string(i));
+		RESET (y, i);
+		test (y == x, "Reset test for " + to_string(i));
 	}
 
 	return 0;
