@@ -1,11 +1,14 @@
+CXX=g++
+CXXFLAGS=-std=c++11
+
 od: od.o utils.o
-	@g++ -o OD od.o utils.o
+	@$(CXX) -o OD od.o utils.o
 
 od.o:
-	@g++ -c od.cpp
+	@$(CXX) -c od.cpp
 
 utils.o:
-	@g++ -c utils.cpp
+	@$(CXX) -c utils.cpp
 
 clean:
 	@rm -f *.o
