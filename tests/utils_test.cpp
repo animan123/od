@@ -29,13 +29,21 @@ int main () {
 		}
 	}
 
-	piece x = 0;
+	piece x = PIECE(0);
 	for (int i=0; i<64; ++i) {
 		piece y = x;
 		SET(y, i);
-		test (y == (1<<i), "Set test for " + to_string(i));
+		test (y == (PIECE(1)<<i), "Set test for " + to_string(i));
 		RESET (y, i);
 		test (y == x, "Reset test for " + to_string(i));
+	}
+
+	x = PIECE(10);
+	for (int i=0; i<64; ++i) {
+		piece y = x;
+		SET(y, i);
+		RESET (y, i);
+		test (y == x, "Set Reset test for " + to_string(i) + "(should fail for 1 and 3)");
 	}
 
 	return 0;
