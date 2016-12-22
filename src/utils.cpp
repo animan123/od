@@ -23,10 +23,14 @@ std::string index_to_notation (int index) {
 }
 
 void set_bit (piece &p, int n) {
+	assert (n >= 0 && n <= 63);
+
 	p |= (PIECE(1)<<n);
 }
 
 void reset_bit (piece &p, int n) {
+	assert (n >= 0 && n <= 63);
+
 	p &= (~(PIECE(1)<<n));
 }
 
