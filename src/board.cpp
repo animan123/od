@@ -4,6 +4,7 @@
 #include <string>
 
 board::board () {
+	all = 0;
 	pawn_init ();
 }
 
