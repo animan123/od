@@ -12,7 +12,7 @@ int main () {
 			string nota (2, 'a');
 			nota[0] = first;
 			nota[1] = second;
-			test (INDEX(nota) == counter, "Index test for " + nota);
+			TEST (INDEX(nota) == counter, "Index test for " + nota);
 			counter += 1;
 		}
 	}
@@ -24,7 +24,7 @@ int main () {
 			nota[0] = first;
 			nota[1] = second;
 			string x = NOTATION (counter);
-			test (x == nota, "Notation test for " + nota);
+			TEST (x == nota, "Notation test for " + nota);
 			counter += 1;
 		}
 	}
@@ -33,9 +33,9 @@ int main () {
 	for (int i=0; i<64; ++i) {
 		bitboard y = x;
 		SET(y, i);
-		test (y == (BITBOARD(1)<<i), "Set test for " + to_string(i));
+		TEST (y == (BITBOARD(1)<<i), "Set test for " + to_string(i));
 		RESET (y, i);
-		test (y == x, "Reset test for " + to_string(i));
+		TEST (y == x, "Reset test for " + to_string(i));
 	}
 
 	x = BITBOARD(10);
@@ -43,7 +43,7 @@ int main () {
 		bitboard y = x;
 		SET(y, i);
 		RESET (y, i);
-		test (y == x, "Set Reset test for " + to_string(i) + "(should fail for 1 and 3)");
+		TEST (y == x, "Set Reset test for " + to_string(i) + "(should fail for 1 and 3)");
 	}
 
 	return 0;
