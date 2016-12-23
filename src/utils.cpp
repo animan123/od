@@ -22,15 +22,15 @@ std::string index_to_notation (int index) {
 	return notation;
 }
 
-void set_bit (piece &p, int n) {
+void set_bit (bitboard &b, int n) {
 	assert (n >= 0 && n <= 63);
 
-	p |= (PIECE(1)<<n);
+	b |= (BITBOARD(1)<<n);
 }
 
-void reset_bit (piece &p, int n) {
+void reset_bit (bitboard &b, int n) {
 	assert (n >= 0 && n <= 63);
 
-	p &= (~(PIECE(1)<<n));
+	b &= (~(BITBOARD(1)<<n));
 }
 

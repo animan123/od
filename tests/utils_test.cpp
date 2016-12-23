@@ -29,18 +29,18 @@ int main () {
 		}
 	}
 
-	piece x = PIECE(0);
+	bitboard x = BITBOARD(0);
 	for (int i=0; i<64; ++i) {
-		piece y = x;
+		bitboard y = x;
 		SET(y, i);
-		test (y == (PIECE(1)<<i), "Set test for " + to_string(i));
+		test (y == (BITBOARD(1)<<i), "Set test for " + to_string(i));
 		RESET (y, i);
 		test (y == x, "Reset test for " + to_string(i));
 	}
 
-	x = PIECE(10);
+	x = BITBOARD(10);
 	for (int i=0; i<64; ++i) {
-		piece y = x;
+		bitboard y = x;
 		SET(y, i);
 		RESET (y, i);
 		test (y == x, "Set Reset test for " + to_string(i) + "(should fail for 1 and 3)");
