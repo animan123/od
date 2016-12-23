@@ -44,3 +44,13 @@ int pop_LSB_bit (bitboard b) {
 	}
 }
 
+int pop_MSB_bit (bitboard b) {
+	assert (b != BITBOARD(0));
+
+	for (int i=63; i>=0; --i) {
+		if (b & (BITBOARD(1)<<i)) {
+			return i;
+		}
+	}
+}
+
