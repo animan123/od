@@ -4,10 +4,17 @@
 #include <string>
 
 board::board () {
-	all = 0;
+	all_init ();
 	pawn_init ();
 	king_init ();
 	queen_init ();
+	knight_init ();
+	bishop_init ();
+	rook_init ();
+}
+
+void board::all_init () {
+	all[WHITE] = all[BLACK] = all[ALL] = 0;
 }
 
 void board::pawn_init () {
@@ -20,7 +27,9 @@ void board::pawn_init () {
 		SET_NOTATION (pawn[BLACK], notation);
 	}
 	pawn[ALL] = pawn[WHITE] | pawn[BLACK];
-	all |= pawn[ALL];
+	all[WHITE] |= pawn[WHITE];
+	all[BLACK] |= pawn[BLACK];
+	all[ALL] |= pawn[ALL];
 }
 
 void board::king_init () {
@@ -29,7 +38,9 @@ void board::king_init () {
 	king[BLACK] = 0;
 	SET_NOTATION (king[BLACK], "E8");
 	king[ALL] = king[WHITE] | king[BLACK];
-	all |= king[ALL];
+	all[WHITE] |= king[WHITE];
+	all[BLACK] |= king[BLACK];
+	all[ALL] |= king[ALL];
 }
 
 void board::queen_init () {
@@ -38,5 +49,43 @@ void board::queen_init () {
 	queen[BLACK] = 0;
 	SET_NOTATION (queen[BLACK], "D8");
 	queen[ALL] = queen[WHITE] | queen[BLACK];
-	all |= queen[ALL];
+	all[WHITE] |= queen[WHITE];
+	all[BLACK] |= queen[BLACK];
+	all[ALL] |= queen[ALL];
+}
+
+void board::knight_init () {
+	knight[WHITE] = knight[BLACK] = 0;
+	SET_NOTATION (knight[WHITE], "B1");
+	SET_NOTATION (knight[WHITE], "G1");
+	SET_NOTATION (knight[BLACK], "B8");
+	SET_NOTATION (knight[BLACK], "G8");
+	knight[ALL] = knight[WHITE] | knight[BLACK];
+	all[WHITE] |= knight[WHITE];
+	all[BLACK] |= knight[BLACK];
+	all[ALL] |= knight[ALL];
+}
+
+void board::bishop_init () {
+	bishop[WHITE] = bishop[BLACK] = 0;
+	SET_NOTATION (bishop[WHITE], "C1");
+	SET_NOTATION (bishop[WHITE], "F1");
+	SET_NOTATION (bishop[BLACK], "C8");
+	SET_NOTATION (bishop[BLACK], "F8");
+	bishop[ALL] = bishop[WHITE] | bishop[BLACK];
+	all[WHITE] |= bishop[WHITE];
+	all[BLACK] |= bishop[BLACK];
+	all[ALL] |= bishop[ALL];
+}
+
+void board::rook_init () {
+	rook[WHITE] = rook[BLACK] = 0;
+	SET_NOTATION (rook[WHITE], "A1");
+	SET_NOTATION (rook[WHITE], "H1");
+	SET_NOTATION (rook[BLACK], "A8");
+	SET_NOTATION (rook[BLACK], "H8");
+	rook[ALL] = rook[WHITE] | rook[BLACK];
+	all[WHITE] |= rook[WHITE];
+	all[BLACK] |= rook[BLACK];
+	all[ALL] |= rook[ALL];
 }
