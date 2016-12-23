@@ -15,9 +15,11 @@ std::string index_to_notation (int index);
 //set nth bit of a bitboard b
 void set_bit (bitboard &b, int n);
 #define SET(b, n) set_bit(b, n)
+#define SET_NOTATION(b, notation) (SET(b, INDEX(notation)))
 
 //reset nth bit of a bitboard b
 void reset_bit (bitboard &b, int n);
 #define RESET(b, n) reset_bit(b, n)
+#define RESET_NOTATION(b, notation) (RESET(b, INDEX(notation)))
 
 #endif
