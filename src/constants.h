@@ -14,4 +14,14 @@
 //convert integers to bitboard type
 #define BITBOARD(x) UINT64_C(x)
 
+//Directions
+#define NORTHWEST 0
+#define NORTH 1
+#define NORTHEAST 2
+#define EAST 3
+#define SOUTHEAST 4
+#define SOUTH 5
+#define SOUTHWEST 6
+#define WEST 7
+
 #endif
