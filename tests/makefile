@@ -4,6 +4,9 @@ SRC = ../src/
 utils_test: utils_test.o tests.o utils.o
 	$(CXX) -o utils_test.out utils_test.o tests.o utils.o
 
+popcnt_test: popcnt_test.o tests.o utils.o
+	$(CXX) -o popcnt_test.out popcnt_test.o tests.o utils.o
+
 all_board_test: pawn_test king_test queen_test knight_test bishop_test rook_test all_piece_test
 
 pawn_test: pawn_test.o tests.o board.o utils.o
