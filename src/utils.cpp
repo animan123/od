@@ -34,3 +34,13 @@ void reset_bit (bitboard &b, int n) {
 	b &= (~(BITBOARD(1)<<n));
 }
 
+int pop_LSB_bit (bitboard b) {
+	assert (b != BITBOARD(0));
+
+	for (int i=0; i<64; ++i) {
+		if (b & (BITBOARD(1)<<i)) {
+			return i;
+		}
+	}
+}
+

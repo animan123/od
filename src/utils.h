@@ -22,4 +22,8 @@ void reset_bit (bitboard &b, int n);
 #define RESET(b, n) reset_bit(b, n)
 #define RESET_NOTATION(b, notation) (RESET(b, INDEX(notation)))
 
+//Pop one single bit closest to LSB (does not reset bit)
+int pop_LSB_bit (bitboard b);
+#define POPCNT(b) pop_LSB_bit(b)
+
 #endif
