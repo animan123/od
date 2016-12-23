@@ -30,6 +30,9 @@ rook_test: rook_test.o tests.o board.o utils.o
 all_piece_test: all_piece_test.o tests.o board.o utils.o
 	$(CXX) -o all_piece_test.out all_piece_test.o tests.o board.o utils.o
 
+rook_moves_test: rook_moves_test.o utils.o tests.o
+	$(CXX) -o rook_moves_test.out rook_moves_test.o utils.o tests.o
+
 %.o: %.cpp
 	$(CXX) -c $<
 
