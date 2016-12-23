@@ -7,6 +7,7 @@ board::board () {
 	all = 0;
 	pawn_init ();
 	king_init ();
+	queen_init ();
 }
 
 void board::pawn_init () {
@@ -29,4 +30,13 @@ void board::king_init () {
 	SET_NOTATION (king[BLACK], "E8");
 	king[ALL] = king[WHITE] | king[BLACK];
 	all |= king[ALL];
+}
+
+void board::queen_init () {
+	queen[WHITE] = 0;
+	SET_NOTATION (queen[WHITE], "D1");
+	queen[BLACK] = 0;
+	SET_NOTATION (queen[BLACK], "D8");
+	queen[ALL] = queen[WHITE] | queen[BLACK];
+	all |= queen[ALL];
 }

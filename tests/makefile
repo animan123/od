@@ -4,13 +4,16 @@ SRC = ../src/
 utils_test: utils_test.o tests.o utils.o
 	$(CXX) -o utils_test.out utils_test.o tests.o utils.o
 
-all_board_test: pawn_test king_test
+all_board_test: pawn_test king_test queen_test
 
 pawn_test: pawn_test.o tests.o board.o utils.o
 	$(CXX) -o pawn_test.out pawn_test.o tests.o board.o utils.o
 
 king_test: king_test.o tests.o board.o utils.o
 	$(CXX) -o king_test.out king_test.o tests.o board.o utils.o
+
+queen_test: queen_test.o tests.o board.o utils.o
+	$(CXX) -o queen_test.out queen_test.o tests.o board.o utils.o
 
 utils_test.o:
 	$(CXX) -c utils_test.cpp
@@ -21,11 +24,14 @@ pawn_test.o:
 king_test.o:
 	$(CXX) -c king_test.cpp
 
+queen_test.o:
+	$(CXX) -c queen_test.cpp
+
 utils.o:
-	$(CXX) -c ../src/utils.cpp
+	$(CXX) -c $(SRC)utils.cpp
 
 board.o:
-	$(CXX) -c ../src/board.cpp
+	$(CXX) -c $(SRC)board.cpp
 
 tests.o:
 	$(CXX) -c tests.cpp
