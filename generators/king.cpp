@@ -27,7 +27,7 @@ int main () {
 			king[index] = BITBOARD (0);
 			for(int x=-1; x<=1; ++x) {
 				for(int y=-1; y<=1; ++y) {
-					if (within_bounds(first+x, second+y) && (x+y)) {
+					if (within_bounds(first+x, second+y) && (x || y)) {
 						notation[0] = first+x;
 						notation[1] = second+y;
 						SET_NOTATION (king[index], notation);
