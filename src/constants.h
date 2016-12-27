@@ -4,6 +4,7 @@
 #include <cstdint>
 
 //color based indexing
+#define EMPTY -1
 #define WHITE 0
 #define BLACK 1
 #define ALL 2
