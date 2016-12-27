@@ -7,6 +7,9 @@ rook: rook.o utils.o
 bishop: bishop.o utils.o
 	$(CXX) bishop.o utils.o -o bishop.out
 
+king: king.o utils.o
+	$(CXX) king.o utils.o -o king.out
+
 utils.o:
 	$(CXX) -c $(SRC)utils.cpp
 
