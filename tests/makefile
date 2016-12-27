@@ -39,6 +39,9 @@ bishop_moves_test: bishop_moves_test.o utils.o tests.o
 king_moves_test: king_moves_test.o utils.o tests.o
 	$(CXX) -o king_moves_test.out king_moves_test.o utils.o tests.o
 
+knight_moves_test: knight_moves_test.o utils.o tests.o
+	$(CXX) -o knight_moves_test.out knight_moves_test.o utils.o tests.o
+
 %.o: %.cpp
 	$(CXX) -c $<
 
