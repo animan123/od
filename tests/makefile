@@ -48,6 +48,12 @@ white_pawn_push_move_test: white_pawn_push_move_test.o utils.o tests.o
 black_pawn_push_move_test: black_pawn_push_move_test.o utils.o tests.o
 	$(CXX) -o black_pawn_push_move_test.out black_pawn_push_move_test.o utils.o tests.o
 
+white_pawn_capture_move_test: white_pawn_capture_move_test.o utils.o tests.o
+	$(CXX) -o white_pawn_capture_move_test.out white_pawn_capture_move_test.o utils.o tests.o
+
+black_pawn_capture_move_test: black_pawn_capture_move_test.o utils.o tests.o
+	$(CXX) -o black_pawn_capture_move_test.out black_pawn_capture_move_test.o utils.o tests.o
+
 %.o: %.cpp
 	$(CXX) -c $<
 
