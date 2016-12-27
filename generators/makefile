@@ -10,6 +10,12 @@ bishop: bishop.o utils.o
 king: king.o utils.o
 	$(CXX) king.o utils.o -o king.out
 
+knight: knight.o utils.o
+	$(CXX) knight.o utils.o -o knight.out
+
+white_pawn_push: white_pawn_push.o utils.o
+	$(CXX) white_pawn_push.o utils.o -o white_pawn_push.out
+
 utils.o:
 	$(CXX) -c $(SRC)utils.cpp
 
