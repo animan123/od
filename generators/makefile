@@ -16,6 +16,9 @@ knight: knight.o utils.o
 white_pawn_push: white_pawn_push.o utils.o
 	$(CXX) white_pawn_push.o utils.o -o white_pawn_push.out
 
+black_pawn_push: black_pawn_push.o utils.o
+	$(CXX) black_pawn_push.o utils.o -o black_pawn_push.out
+
 utils.o:
 	$(CXX) -c $(SRC)utils.cpp
 
