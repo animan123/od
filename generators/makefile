@@ -22,6 +22,9 @@ black_pawn_push: black_pawn_push.o utils.o
 white_pawn_capture: white_pawn_capture.o utils.o
 	$(CXX) white_pawn_capture.o utils.o -o white_pawn_capture.out
 
+black_pawn_capture: black_pawn_capture.o utils.o
+	$(CXX) black_pawn_capture.o utils.o -o black_pawn_capture.out
+
 utils.o:
 	$(CXX) -c $(SRC)utils.cpp
 
