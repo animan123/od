@@ -4,10 +4,10 @@
 #include <cstdint>
 
 //color based indexing
-#define EMPTY -1
 #define WHITE 0
 #define BLACK 1
 #define ALL 2
+#define NOCOLOR 3
 
 //each bitboard is an unsigned 64 bit integer
 #define bitboard uint64_t
