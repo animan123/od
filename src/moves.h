@@ -44,4 +44,8 @@ int move_is_sane (board b, int from, int to);
 int move_is_capture (board b, int from, int to);
 #define MOVE_IS_CAPTURE(x, y, z) (move_is_capture(x, y, z))
 
+/* move on same board without creating a new board */
+void move_on_same_board (board &b, int from, int to);
+#define MOVE_ON_SAME_BOARD(x, y, z) (move_on_same_board(x, y, z))
+
 #endif
