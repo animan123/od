@@ -4,6 +4,9 @@ SRC = ../src/
 move_sanity_test: move_sanity_test.o tests.o utils.o board.o moves.o
 	$(CXX) -o move_sanity_test.out move_sanity_test.o tests.o utils.o board.o moves.o
 
+move_capture_test: move_capture_test.o tests.o utils.o board.o moves.o
+	$(CXX) -o move_capture_test.out move_capture_test.o tests.o utils.o board.o moves.o
+
 board_color_piece_test: board_color_piece_test.o tests.o utils.o board.o
 	$(CXX) -o board_color_piece_test.out board_color_piece_test.o tests.o utils.o board.o
 
