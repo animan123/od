@@ -89,3 +89,42 @@ void board::rook_init () {
 	all[BLACK] |= rook[BLACK];
 	all[ALL] |= rook[ALL];
 }
+
+int board::square_color (int index) {
+	bitboard b = BITBOARD(0);
+	SET (b, index);
+	if (b & all[WHITE]) {
+		return WHITE;
+	} else if (b & all[BLACK]) {
+		return BLACK;
+	}
+	return NOCOLOR;
+}
+
+int board::square_piece (int index, int color) {
+	bitboard b = BITBOARD(0);
+	SET (b, index);
+	if (b & pawn[color]) {
+		return PAWN;
+	}
+	if (b & king[color]) {
+		return KING;
+	}
+	if (b & queen[color]) {
+		return QUEEN;
+	}
+	if (b & knight[color]) {
+		return KNIGHT;
+	}
+	if (b & bishop[color]) {
+		return BISHOP;
+	}
+	if (b & rook[color]) {
+		return ROOK;
+	}
+	return NOPIECE;
+}
+
+int board::square_piece (int index) {
+	return square_piece (index, square_color(index));
+}

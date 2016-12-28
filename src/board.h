@@ -13,6 +13,7 @@ public:
 	bitboard bishop[3];
 	bitboard rook[3];
 
+	/* Initialization functions */
 	board ();
 	void all_init ();
 	void pawn_init ();
@@ -21,6 +22,13 @@ public:
 	void knight_init ();
 	void bishop_init ();
 	void rook_init ();
+
+	/* Determine which color piece on square */
+	int square_color (int index);
+
+	/* Determine which piece on square */
+	int square_piece (int index, int color);
+	int square_piece (int index);
 };
 
 #endif
