@@ -1,6 +1,9 @@
 CXX = g++ -std=c++11
 SRC = ../src/
 
+board_color_piece_test: board_color_piece_test.o tests.o utils.o board.o
+	$(CXX) -o board_color_piece_test.out board_color_piece_test.o tests.o utils.o board.o
+
 utils_test: utils_test.o tests.o utils.o
 	$(CXX) -o utils_test.out utils_test.o tests.o utils.o
 
