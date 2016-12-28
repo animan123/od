@@ -16,6 +16,7 @@
 #define BISHOP 3
 #define KING 4
 #define QUEEN 5
+#define NOPIECE 6
 
 //each bitboard is an unsigned 64 bit integer
 #define bitboard uint64_t
