@@ -3,11 +3,19 @@
 
 #include <cstdint>
 
-//color based indexing
+//colors
 #define WHITE 0
 #define BLACK 1
 #define ALL 2
 #define NOCOLOR 3
+
+//pieces
+#define PAWN 0
+#define ROOK 1
+#define KNIGHT 2
+#define BISHOP 3
+#define KING 4
+#define QUEEN 5
 
 //each bitboard is an unsigned 64 bit integer
 #define bitboard uint64_t
