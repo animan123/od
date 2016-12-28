@@ -40,4 +40,8 @@ BITBOARD(0), BITBOARD(0), BITBOARD(0), BITBOARD(0), BITBOARD(0), BITBOARD(0), BI
 int move_is_sane (board b, int from, int to);
 #define MOVE_IS_SANE(x, y, z) (move_is_sane (x, y, z))
 
+/* is move a capture? */
+int move_is_capture (board b, int from, int to);
+#define MOVE_IS_CAPTURE(x, y, z) (move_is_capture(x, y, z))
+
 #endif

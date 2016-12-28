@@ -13,3 +13,7 @@ int move_is_sane (board b, int from, int to) {
 		(from_piece != NOPIECE)
 	);
 }
+
+int move_is_capture (board b, int from, int to) {
+	return (PIECE_ON(b, to) != NOPIECE);
+}
