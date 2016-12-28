@@ -47,5 +47,6 @@ int move_is_capture (board b, int from, int to);
 /* move on same board without creating a new board */
 void move_on_same_board (board &b, int from, int to);
 #define MOVE_ON_SAME_BOARD(x, y, z) (move_on_same_board(x, y, z))
+#define UNMOVE_ON_SAME_BOARD(x, y, z) (move_on_same_board(x, z, y))
 
 #endif
