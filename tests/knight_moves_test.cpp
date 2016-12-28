@@ -1,5 +1,5 @@
 #include "../src/constants.h"
-#include "../src/moves.h"
+#include "../src/movegen.h"
 #include "../src/utils.h"
 #include "tests.h"
 #include <string>
