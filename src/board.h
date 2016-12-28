@@ -31,4 +31,7 @@ public:
 	int square_piece (int index);
 };
 
+#define COLOR_OF_PIECE_ON(b, index) (b.square_color(index))
+#define PIECE_ON(b, index) (b.square_piece(index))
+
 #endif

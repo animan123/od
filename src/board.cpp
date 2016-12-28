@@ -102,6 +102,9 @@ int board::square_color (int index) {
 }
 
 int board::square_piece (int index, int color) {
+	if (color == NOCOLOR) {
+		return NOPIECE;
+	}
 	bitboard b = BITBOARD(0);
 	SET (b, index);
 	if (b & pawn[color]) {
