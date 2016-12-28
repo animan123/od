@@ -44,9 +44,21 @@ int move_is_sane (board b, int from, int to);
 int move_is_capture (board b, int from, int to);
 #define MOVE_IS_CAPTURE(x, y, z) (move_is_capture(x, y, z))
 
+/* Manipulate moving piece in a move */
+void set_reset_moving_piece (board &b, int from, int to);
+#define SET_RESET_MOVING_PIECE(x, y, z) (set_reset_moving_piece(x, y, z))
+
+/* Manipulate captured piece in a move */
+void set_reset_captured_piece (board &b, int from, int to);
+#define SET_RESET_CAPTURED_PIECE(x, y, z) (set_reset_captured_piece(x, y, z))
+
 /* move on same board without creating a new board */
 void move_on_same_board (board &b, int from, int to);
 #define MOVE_ON_SAME_BOARD(x, y, z) (move_on_same_board(x, y, z))
 #define UNMOVE_ON_SAME_BOARD(x, y, z) (move_on_same_board(x, z, y))
+
+/* move by creating a new board */
+board move_on_different_board(board b, int from, int to);
+#define MOVE_ON_DIFFERENT_BOARD(x, y, z) (move_on_different_board(x, y, z))
 
 #endif
