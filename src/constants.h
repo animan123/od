@@ -36,4 +36,11 @@
 #define SOUTHEAST 2
 #define SOUTHWEST 3
 
+//each move has a to and from field with some scores
+class move {
+public:
+	int to, from;
+	int ordering_score;
+};
+
 #endif
