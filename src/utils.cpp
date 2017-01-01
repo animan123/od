@@ -54,3 +54,11 @@ int pop_MSB_bit (bitboard b) {
 	}
 }
 
+int other_color (int color) {
+	assert (color == WHITE || color == BLACK);
+
+	if (color == BLACK) {
+		return WHITE;
+	}
+	return BLACK;
+}

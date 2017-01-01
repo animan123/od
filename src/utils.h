@@ -28,6 +28,9 @@ int pop_LSB_bit (bitboard b);
 
 //Pop single bit closest to MSB (does not reset bit)
 int pop_MSB_bit (bitboard b);
-#define POPMSB(b) pop_MSB_bit(b) 
+#define POPMSB(b) pop_MSB_bit(b)
+
+int other_color (int color);
+#define OTHER_COLOR(x) (other_color(x))
 
 #endif
