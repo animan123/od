@@ -111,3 +111,17 @@ board move_on_different_board (board b, int from, int to) {
 	SET_RESET_MOVING_PIECE (c, from, to);
 	return c;
 }
+
+Move::Move (int _to, int _from) {
+	to = _to;
+	from = _from;
+	calculate_ordering_score ();
+}
+
+void Move::calculate_ordering_score () {
+	ordering_score = 1;
+}
+
+bool Move::operator < (const Move &m) const {
+	return (this->ordering_score < m.ordering_score);
+}

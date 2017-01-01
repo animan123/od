@@ -29,4 +29,15 @@ void move_on_same_board (board &b, int from, int to);
 board move_on_different_board(board b, int from, int to);
 #define MOVE_ON_DIFFERENT_BOARD(x, y, z) (move_on_different_board(x, y, z))
 
+/* move has to and from indices and a bunch of scores */
+class Move {
+public:
+	int to, from;
+	int ordering_score;
+
+	Move (int to, int from);
+	void calculate_ordering_score ();
+	bool operator < (const Move &M) const;
+}
+
 #endif
