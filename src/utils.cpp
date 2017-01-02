@@ -44,6 +44,14 @@ int pop_LSB_bit (bitboard b) {
 	}
 }
 
+int pop_LSB_bit_and_reset_bit (bitboard &b) {
+	assert (b != BITBOARD(0));
+
+	int index = POPLSB (b);
+	RESET (b, index);
+	return index;
+}
+
 int pop_MSB_bit (bitboard b) {
 	assert (b != BITBOARD(0));
 

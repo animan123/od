@@ -16,12 +16,10 @@ void gen_knight_moves (MoveList &move_list, board b, int color) {
 	int from;
 	bitboard knight_move;
 	while (knight_board) {
-		from = POPLSB (knight_board);
-		RESET (knight_board, from);
+		from = POPLSB_AND_RESET (knight_board);
 		knight_move = (knight_moves[from] & (~b.all[color]));
 		while (knight_move) {
-			int to = POPLSB (knight_move);
-			RESET (knight_move, to);
+			int to = POPLSB_AND_RESET (knight_move);
 			move_list.push  (Move(from, to));
 		}
 	}

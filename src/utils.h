@@ -26,9 +26,17 @@ void reset_bit (bitboard &b, int n);
 int pop_LSB_bit (bitboard b);
 #define POPLSB(b) pop_LSB_bit(b)
 
+//Pop LSB and Reset bit
+int pop_LSB_bit_and_reset_bit (bitboard &b);
+#define POPLSB_AND_RESET(b) (pop_LSB_bit_and_reset_bit(b))
+
 //Pop single bit closest to MSB (does not reset bit)
 int pop_MSB_bit (bitboard b);
 #define POPMSB(b) pop_MSB_bit(b)
+
+//Pop MSB and Reset bit
+int pop_MSB_bit_and_reset_bit (bitboard &b);
+#define POPMSB_AND_RESET(b) (pop_MSB_bit_and_reset_bit(b))
 
 int other_color (int color);
 #define OTHER_COLOR(x) (other_color(x))
