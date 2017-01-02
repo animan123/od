@@ -1,0 +1,12 @@
+#include "movegen.h"
+#include "constants.h"
+#include "utils.h"
+#include "board.h"
+#include "moves.h"
+#include <queue>
+
+void gen_knight_moves (std::priority_queue<Move> &move_list, board b, int color) {
+	int other_color = OTHER_COLOR (color);
+	
+}
+

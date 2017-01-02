@@ -3,6 +3,7 @@
 #include "board.h"
 #include "utils.h"
 #include <assert.h>
+#include <string>
 
 int move_is_sane (board b, int from, int to) {
 	int from_color = COLOR_OF_PIECE_ON (b, from);
@@ -112,7 +113,7 @@ board move_on_different_board (board b, int from, int to) {
 	return c;
 }
 
-Move::Move (int _to, int _from) {
+Move::Move (int _from, int _to) {
 	to = _to;
 	from = _from;
 	calculate_ordering_score ();
@@ -124,4 +125,8 @@ void Move::calculate_ordering_score () {
 
 bool Move::operator < (const Move &m) const {
 	return (this->ordering_score < m.ordering_score);
+}
+
+std::string Move::move_name () {
+	return (NOTATION(from) + " to " + NOTATION(to));
 }

@@ -3,6 +3,7 @@
 
 #include "constants.h"
 #include "board.h"
+#include <string>
 
 /* move sanity check */
 int move_is_sane (board b, int from, int to);
@@ -35,9 +36,13 @@ public:
 	int to, from;
 	int ordering_score;
 
-	Move (int to, int from);
+	Move (int from, int to);
 	void calculate_ordering_score ();
 	bool operator < (const Move &M) const;
-}
+
+	std::string move_name ();
+};
+
+#define MoveList std::priority_queue<Move>
 
 #endif
