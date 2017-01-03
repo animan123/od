@@ -5,6 +5,7 @@
 
 board::board () {
 	all_init ();
+	special_init ();
 	pawn_init ();
 	king_init ();
 	queen_init ();
@@ -14,11 +15,17 @@ board::board () {
 }
 
 void board::all_init () {
-	all[WHITE] = all[BLACK] = all[ALL] = 0;
+	all[WHITE] = all[BLACK] = all[ALL] = BITBOARD(0);
+}
+
+void board::special_init () {
+	special[WHITE] = special[BLACK] = BITBOARD(0);
+	SET_NOTATION (special[WHITE], "E1");
+	SET_NOTATION (special[BLACK], "E8");
 }
 
 void board::pawn_init () {
-	pawn[WHITE] = pawn[BLACK] = 0;
+	pawn[WHITE] = pawn[BLACK] = BITBOARD(0);
 	for (char first='A'; first<='H'; ++first) {
 		std::string notation(2, first);
 		notation[1] = '2';
@@ -33,9 +40,9 @@ void board::pawn_init () {
 }
 
 void board::king_init () {
-	king[WHITE] = 0;
+	king[WHITE] = BITBOARD(0);
 	SET_NOTATION (king[WHITE], "E1");
-	king[BLACK] = 0;
+	king[BLACK] = BITBOARD(0);
 	SET_NOTATION (king[BLACK], "E8");
 	king[ALL] = king[WHITE] | king[BLACK];
 	all[WHITE] |= king[WHITE];
@@ -44,9 +51,9 @@ void board::king_init () {
 }
 
 void board::queen_init () {
-	queen[WHITE] = 0;
+	queen[WHITE] = BITBOARD(0);
 	SET_NOTATION (queen[WHITE], "D1");
-	queen[BLACK] = 0;
+	queen[BLACK] = BITBOARD(0);
 	SET_NOTATION (queen[BLACK], "D8");
 	queen[ALL] = queen[WHITE] | queen[BLACK];
 	all[WHITE] |= queen[WHITE];
@@ -55,7 +62,7 @@ void board::queen_init () {
 }
 
 void board::knight_init () {
-	knight[WHITE] = knight[BLACK] = 0;
+	knight[WHITE] = knight[BLACK] = BITBOARD(0);
 	SET_NOTATION (knight[WHITE], "B1");
 	SET_NOTATION (knight[WHITE], "G1");
 	SET_NOTATION (knight[BLACK], "B8");
@@ -67,7 +74,7 @@ void board::knight_init () {
 }
 
 void board::bishop_init () {
-	bishop[WHITE] = bishop[BLACK] = 0;
+	bishop[WHITE] = bishop[BLACK] = BITBOARD(0);
 	SET_NOTATION (bishop[WHITE], "C1");
 	SET_NOTATION (bishop[WHITE], "F1");
 	SET_NOTATION (bishop[BLACK], "C8");
@@ -79,7 +86,7 @@ void board::bishop_init () {
 }
 
 void board::rook_init () {
-	rook[WHITE] = rook[BLACK] = 0;
+	rook[WHITE] = rook[BLACK] = BITBOARD(0);
 	SET_NOTATION (rook[WHITE], "A1");
 	SET_NOTATION (rook[WHITE], "H1");
 	SET_NOTATION (rook[BLACK], "A8");

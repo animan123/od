@@ -12,10 +12,12 @@ public:
 	bitboard knight[3];
 	bitboard bishop[3];
 	bitboard rook[3];
+	bitboard special[2];
 
 	/* Initialization functions */
 	board ();
 	void all_init ();
+	void special_init ();
 	void pawn_init ();
 	void king_init ();
 	void queen_init ();
