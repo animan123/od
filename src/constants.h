@@ -36,4 +36,7 @@
 #define SOUTHEAST 2
 #define SOUTHWEST 3
 
+//Macro for castling moves
+#define CASTLING 64
+
 #endif
