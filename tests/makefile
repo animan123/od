@@ -10,6 +10,9 @@ move_on_same_board_test: move_on_same_board_test.o tests.o utils.o board.o moves
 movegen_test: movegen_test.o tests.o utils.o board.o moves.o movegen.o
 	$(CXX) -o movegen_test.out movegen_test.o tests.o utils.o board.o moves.o movegen.o
 
+movegen_king_test: movegen_king_test.o tests.o utils.o board.o moves.o movegen.o
+	$(CXX) -o movegen_king_test.out movegen_king_test.o tests.o utils.o board.o moves.o movegen.o
+
 move_on_different_board_test: move_on_different_board_test.o tests.o utils.o board.o moves.o
 	$(CXX) -o move_on_different_board_test.out move_on_different_board_test.o tests.o utils.o board.o moves.o
 
