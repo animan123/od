@@ -37,6 +37,7 @@
 #define SOUTHWEST 3
 
 //Macro for castling moves
-#define CASTLING 64
+#define KING_SIDE_CASTLING 64
+#define QUEEN_SIDE_CASTLING 65
 
 #endif
