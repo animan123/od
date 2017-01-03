@@ -7,8 +7,8 @@ move_sanity_test: move_sanity_test.o tests.o utils.o board.o moves.o
 move_on_same_board_test: move_on_same_board_test.o tests.o utils.o board.o moves.o
 	$(CXX) -o move_on_same_board_test.out move_on_same_board_test.o tests.o utils.o board.o moves.o
 
-movegen_test: movegen_test.o tests.o utils.o board.o moves.o movegen.o
-	$(CXX) -o movegen_test.out movegen_test.o tests.o utils.o board.o moves.o movegen.o
+movegen_knight_test: movegen_knight_test.o tests.o utils.o board.o moves.o movegen.o
+	$(CXX) -o movegen_knight_test.out movegen_knight_test.o tests.o utils.o board.o moves.o movegen.o
 
 movegen_king_test: movegen_king_test.o tests.o utils.o board.o moves.o movegen.o
 	$(CXX) -o movegen_king_test.out movegen_king_test.o tests.o utils.o board.o moves.o movegen.o

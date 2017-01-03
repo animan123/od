@@ -13,7 +13,8 @@ int main () {
 	MOVE_ON_SAME_BOARD (b, INDEX("G1"), INDEX("F3"));
 	MOVE_ON_SAME_BOARD (b, INDEX("E7"), INDEX("E6"));
 	MOVE_ON_SAME_BOARD (b, INDEX("F3"), INDEX("D4"));
-	MoveList move_list = gen_moves (b, WHITE);
+	MoveList move_list;
+	gen_knight_moves (move_list, b, WHITE);
 	while (!move_list.empty()) {
 		Move m = move_list.top ();
 		move_list.pop ();
