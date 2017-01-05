@@ -9,7 +9,7 @@
 #define ALL 2
 #define NOCOLOR 3
 
-//pieces
+//piece macros
 #define PAWN 0
 #define ROOK 1
 #define KNIGHT 2
