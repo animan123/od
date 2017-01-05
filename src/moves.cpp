@@ -7,6 +7,22 @@
 
 int move_is_sane (board b, int from, int to) {
 	int from_color = COLOR_OF_PIECE_ON (b, from);
+	if (to == KING_SIDE_CASTLING) {
+		if (from_color == WHITE) {
+			return WHITE_CAN_CASTLE_KING_SIDE (b);
+		} else if (from_color == BLACK) {
+			return BLACK_CAN_CASTLE_KING_SIDE (b);
+		}
+		return 0;
+	}
+	if (to == QUEEN_SIDE_CASTLING) {
+		if (from_color == WHITE) {
+			return WHITE_CAN_CASTLE_QUEEN_SIDE (b);
+		} else if (from_color == BLACK) {
+			return BLACK_CAN_CASTLE_QUEEN_SIDE (b);
+		}
+		return 0;
+	}
 	int to_color = COLOR_OF_PIECE_ON (b, to);
 	int from_piece = PIECE_ON (b, from);
 	return (
@@ -17,7 +33,11 @@ int move_is_sane (board b, int from, int to) {
 }
 
 int move_is_capture (board b, int from, int to) {
-	return (PIECE_ON(b, to) != NOPIECE);
+	return (
+		(to == KING_SIDE_CASTLING) ||
+		(to == QUEEN_SIDE_CASTLING) ||
+		(PIECE_ON(b, to) != NOPIECE) 
+	);
 }
 
 void set_reset_moving_piece(board &b, int from, int to) {
@@ -108,8 +128,32 @@ board move_on_different_board (board b, int from, int to) {
 	assert (MOVE_IS_SANE(b, from, to));
 	assert (MOVE_IS_CAPTURE(b, from, to));
 	board c = b;
-	SET_RESET_CAPTURED_PIECE (c, from, to);
-	SET_RESET_MOVING_PIECE (c, from, to);
+	if (to == KING_SIDE_CASTLING) {
+		/* King side castling */
+		int from_color = COLOR_OF_PIECE_ON (c, from);
+		if (from_color == WHITE) {
+			MOVE_ON_SAME_BOARD (c, INDEX("E1"), INDEX("G1"));
+			MOVE_ON_SAME_BOARD (c, INDEX("H1"), INDEX("F1"));
+		} else {
+			MOVE_ON_SAME_BOARD (c, INDEX("E8"), INDEX("G8"));
+			MOVE_ON_SAME_BOARD (c, INDEX("H8"), INDEX("F8"));
+		}
+	}
+	else if (to == QUEEN_SIDE_CASTLING) {
+		/* Queen side castling */
+		int from_color = COLOR_OF_PIECE_ON (c, from);
+		if (from_color == WHITE) {
+			MOVE_ON_SAME_BOARD (c, INDEX("E1"), INDEX("C1"));
+			MOVE_ON_SAME_BOARD (c, INDEX("A1"), INDEX("D1"));
+		} else {
+			MOVE_ON_SAME_BOARD (c, INDEX("E8"), INDEX("C8"));
+			MOVE_ON_SAME_BOARD (c, INDEX("A8"), INDEX("D8"));
+		}
+	} else {
+		/* Normal capture move */
+		SET_RESET_CAPTURED_PIECE (c, from, to);
+		SET_RESET_MOVING_PIECE (c, from, to);
+	}
 	return c;
 }
 
@@ -128,5 +172,11 @@ bool Move::operator < (const Move &m) const {
 }
 
 std::string Move::move_name () {
+	if (to == KING_SIDE_CASTLING) {
+		return (NOTATION(from) + " king side castling");
+	}
+	if (to == QUEEN_SIDE_CASTLING) {
+		return (NOTATION(from) + " queen side castling");
+	}
 	return (NOTATION(from) + " to " + NOTATION(to));
 }

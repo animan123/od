@@ -38,5 +38,22 @@ void gen_king_moves (MoveList &move_list, board b, int color) {
 			move_list.push (Move(from, to));
 		}
 	}
+	if (color == WHITE) {
+		if WHITE_CAN_CASTLE_KING_SIDE(b) {
+			move_list.push (Move(from, KING_SIDE_CASTLING));
+		}
+		if WHITE_CAN_CASTLE_QUEEN_SIDE(b) {
+			move_list.push (Move(from, QUEEN_SIDE_CASTLING));
+		}
+	}
+	
+	if (color == BLACK) {
+		if BLACK_CAN_CASTLE_KING_SIDE(b) {
+			move_list.push (Move(from, KING_SIDE_CASTLING));
+		}
+		if BLACK_CAN_CASTLE_QUEEN_SIDE(b) {
+			move_list.push (Move(from, QUEEN_SIDE_CASTLING));
+		}
+	}
 }
 
