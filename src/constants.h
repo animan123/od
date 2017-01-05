@@ -3,7 +3,7 @@
 
 #include <cstdint>
 
-//colors
+//color macros
 #define WHITE 0
 #define BLACK 1
 #define ALL 2
