@@ -4,6 +4,9 @@ SRC = ../src/
 rook: rook.o utils.o
 	$(CXX) rook.o utils.o -o rook.out
 
+occupancy: occupancy.o utils.o
+	$(CXX) occupancy.o utils.o -o occupancy.out
+
 bishop: bishop.o utils.o
 	$(CXX) bishop.o utils.o -o bishop.out
 
