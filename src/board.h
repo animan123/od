@@ -31,9 +31,19 @@ public:
 	/* Determine which piece on square */
 	int square_piece (int index, int color);
 	int square_piece (int index);
+
+	/* Castling priviledge check */
+	bool white_can_castle_king_side ();
+	bool white_can_castle_queen_side ();
+	bool black_can_castle_king_side ();
+	bool black_can_castle_queen_side ();
 };
 
 #define COLOR_OF_PIECE_ON(b, index) (b.square_color(index))
 #define PIECE_ON(b, index) (b.square_piece(index))
+#define WHITE_CAN_CASTLE_KING_SIDE(b) (b.white_can_castle_king_side())
+#define WHITE_CAN_CASTLE_QUEEN_SIDE(b) (b.white_can_castle_queen_side())
+#define BLACK_CAN_CASTLE_KING_SIDE(b) (b.black_can_castle_king_side())
+#define BLACK_CAN_CASTLE_QUEEN_SIDE(b) (b.black_can_castle_queen_side())
 
 #endif

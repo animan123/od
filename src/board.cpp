@@ -20,8 +20,12 @@ void board::all_init () {
 
 void board::special_init () {
 	special[WHITE] = special[BLACK] = BITBOARD(0);
+	SET_NOTATION (special[WHITE], "A1");
 	SET_NOTATION (special[WHITE], "E1");
+	SET_NOTATION (special[WHITE], "H1");
+	SET_NOTATION (special[BLACK], "A8");
 	SET_NOTATION (special[BLACK], "E8");
+	SET_NOTATION (special[BLACK], "H8");
 }
 
 void board::pawn_init () {
@@ -138,3 +142,42 @@ int board::square_piece (int index, int color) {
 int board::square_piece (int index) {
 	return square_piece (index, square_color(index));
 }
+
+bool board::white_can_castle_king_side () {
+	return (
+		(special[WHITE] & occupancy[INDEX("E1")]) &&
+		(special[WHITE] & occupancy[INDEX("H1")]) &&
+		(!(all[WHITE] & occupancy[INDEX("F1")])) &&
+		(!(all[WHITE] & occupancy[INDEX("G1")]))
+	);
+}
+
+bool board::white_can_castle_queen_side () {
+	return (
+		(special[WHITE] & occupancy[INDEX("E1")]) &&
+		(special[WHITE] & occupancy[INDEX("A1")]) &&
+		(!(all[WHITE] & occupancy[INDEX("B1")])) &&
+		(!(all[WHITE] & occupancy[INDEX("C1")])) &&
+		(!(all[WHITE] & occupancy[INDEX("D1")]))
+	);
+}
+
+bool board::black_can_castle_king_side () {
+	return (
+		(special[BLACK] & occupancy[INDEX("E8")]) &&
+		(special[BLACK] & occupancy[INDEX("H8")]) &&
+		(!(all[BLACK] & occupancy[INDEX("F8")])) &&
+		(!(all[BLACK] & occupancy[INDEX("G8")]))
+	);
+}
+
+bool board::black_can_castle_queen_side () {
+	return (
+		(special[BLACK] & occupancy[INDEX("E8")]) &&
+		(special[BLACK] & occupancy[INDEX("A8")]) &&
+		(!(all[BLACK] & occupancy[INDEX("B8")])) &&
+		(!(all[BLACK] & occupancy[INDEX("C8")])) &&
+		(!(all[BLACK] & occupancy[INDEX("D8")]))
+	);
+}
+
