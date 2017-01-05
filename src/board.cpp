@@ -4,6 +4,10 @@
 #include <string>
 
 board::board () {
+	init ();
+}
+
+void board::init () {
 	all_init ();
 	special_init ();
 	pawn_init ();

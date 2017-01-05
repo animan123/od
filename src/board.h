@@ -16,6 +16,7 @@ public:
 
 	/* Initialization functions */
 	board ();
+	void init ();
 	void all_init ();
 	void special_init ();
 	void pawn_init ();
@@ -45,5 +46,6 @@ public:
 #define WHITE_CAN_CASTLE_QUEEN_SIDE(b) (b.white_can_castle_queen_side())
 #define BLACK_CAN_CASTLE_KING_SIDE(b) (b.black_can_castle_king_side())
 #define BLACK_CAN_CASTLE_QUEEN_SIDE(b) (b.black_can_castle_queen_side())
+#define RESET_BOARD(b) (b.init())
 
 #endif
