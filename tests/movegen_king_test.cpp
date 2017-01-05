@@ -22,9 +22,11 @@ int main () {
 		Move m = move_list.top ();
 		move_list.pop ();
 		if MOVE_IS_CAPTURE (b, m.from, m.to) {
+			cout << "Capture move: " << endl;
 			board c = MOVE_ON_DIFFERENT_BOARD (b, m.from, m.to);
 			PRINTBOARD (c.all[ALL], m.move_name());
 		} else {
+			cout << "Non capture move: " << endl;
 			MOVE_ON_SAME_BOARD (b, m.from, m.to);
 			PRINTBOARD (b.all[ALL], m.move_name());
 			UNMOVE_ON_SAME_BOARD (b, m.from, m.to);
