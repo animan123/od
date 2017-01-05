@@ -7,7 +7,7 @@
 
 MoveList gen_moves (board b, int color) {
 	MoveList move_list;
-	//gen_knight_moves (move_list, b, color);
+	gen_knight_moves (move_list, b, color);
 	gen_king_moves (move_list, b, color);
 	return move_list;
 }
