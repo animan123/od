@@ -29,7 +29,8 @@ int main () {
 		int input;
 		cin>>input;
 	}
-	
+
+	b.reset ();
 	MOVE_ON_SAME_BOARD (b, INDEX("E2"), INDEX("E4"));
 	MOVE_ON_SAME_BOARD (b, INDEX("B8"), INDEX("C6"));
 	MOVE_ON_SAME_BOARD (b, INDEX("D2"), INDEX("D3"));
